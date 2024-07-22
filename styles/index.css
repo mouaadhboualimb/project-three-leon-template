@@ -1,0 +1,656 @@
+/* start variables */
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --third-color: #575757;
+    --section-background: #f6f6f6;
+    --speacial-header-color: #eee;
+    --main-padding: 60px;
+    --main-duration: 0.4s;
+}
+
+@media (max-width:768px) {
+    :root {
+        --main-padding: 40px;
+    }
+}
+
+/* ens variables */
+/* global rules */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    text-transform: capitalize;
+}
+
+p::first-letter {
+    text-transform: uppercase;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        width: 545px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 1350px;
+    }
+}
+
+/* end global rules */
+
+/* start spatial header */
+.spatial-header {
+    text-align: center;
+}
+
+.spatial-header h2 {
+    font-size: 10vw;
+    color: var(--speacial-header-color);
+    margin: 0;
+}
+
+.spatial-header p {
+    color: var(--third-color);
+    margin-top: -30px;
+}
+
+@media (max-width: 767px) {
+    .spatial-header h2 {
+        font-size: 70px;
+    }
+
+    .spatial-header p {
+        margin-top: -21px;
+    }
+}
+
+
+
+/* end spatial header */
+/* start header */
+header {
+    margin-top: 25px;
+    height: 60px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 60px;
+    height: 35px;
+}
+
+header .links .icon {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: end;
+    width: 35px;
+    height: 30px;
+}
+
+header .links .icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+header .links .icon span:nth-child(2) {
+    width: 65%;
+    transition: var(--main-duration);
+}
+
+header .links {
+    position: relative;
+}
+
+header .links ul {
+    list-style: none;
+    display: none;
+    position: absolute;
+    right: 0;
+    margin: 0;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 10px;
+    width: 140px;
+}
+
+@media (min-width: 1200px) {
+    header .links ul {
+        width: 12vw;
+    }
+}
+
+header .links:hover ul {
+    display: block;
+
+}
+
+header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+
+header .links ul li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    transition: var(--main-duration);
+    text-align: center;
+    border-radius: 3px;
+}
+
+@media (min-width: 1200px) {
+    header .links ul li {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-size: 1.5vw;
+    }
+}
+
+header .links li:hover {
+    background-color: #ddd;
+    padding-left: 3px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+header .links li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+header .links li:hover a {
+    color: var(--main-color);
+}
+
+/* end header */
+/*start landing page */
+.landing-page {
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    height: calc(100vh - 85px);
+}
+
+.landing-page .text-intro {
+    max-width: 95%;
+    width: 320px;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.landing-page h1 {
+    color: var(--main-color);
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.landing-page p {
+    text-transform: capitalize;
+    color: var(--secondary-color);
+    line-height: 1.4;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+/* end landing page */
+/* start features */
+.features {
+    background-color: var(--section-background);
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .features .container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(350px, 1fr));
+        grid-template-rows: 2;
+        gap: 40px;
+        grid-template-areas: "one two""three three";
+    }
+
+    .features .one {
+        grid-area: one;
+    }
+
+    .features .two {
+        grid-area: two;
+    }
+
+    .features .three {
+        grid-area: three;
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .features .container {
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+
+    }
+}
+
+.features .feat {
+    text-align: center;
+}
+
+.features .feat i {
+    color: var(--main-color);
+    font-size: 65px;
+}
+
+.features .feat h3 {
+    font-weight: 800;
+    color: var(--secondary-color);
+}
+
+.features .feat p {
+    color: var(--third-color);
+}
+
+/* end features */
+/* start services */
+.services {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    /* l dont know how to keep the background and and 
+     dont have problem withe before of the image div  */
+    /* background-color: var(--section-background); */
+}
+
+.services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding-top: 80px;
+}
+
+@media (min-width: 1400px) {
+    .services .services-content {
+        grid-template-columns: repeat(350px);
+        gap: 100px;
+    }
+}
+
+.services .srv {
+    display: flex;
+}
+
+@media (max-width:768px) {
+    .services .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services .srv i {
+        font-size: 45px;
+    }
+}
+
+.services .srv i {
+    flex-basis: 60px;
+    font-size: 34px;
+    color: var(--main-color);
+}
+
+.services .srv .srv-text {
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.services .srv h3 {
+    margin-top: 0;
+}
+
+.services .srv p {
+    color: var(--third-color);
+    line-height: 1.6;
+}
+
+.services img {
+    width: 81%;
+    height: 360px;
+}
+
+.services .image {
+    position: relative;
+}
+
+.services .image::before {
+    content: "";
+    position: absolute;
+    right: 18px;
+    top: -52px;
+    width: 100px;
+    height: calc(100% + 100px);
+    background-color: var(--secondary-color);
+    z-index: -1;
+}
+
+@media (max-width: 1199px) {
+    .services .column:last-child {
+        display: none;
+    }
+}
+
+/* end services */
+
+/* start portfolio */
+.portfolio {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-color: var(--section-background);
+}
+
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding-top: 80px;
+    perspective: 700px;
+    perspective-origin: center center;
+    position: relative;
+}
+
+#show-more-input {
+    display: none;
+}
+
+.portfolio .portfolio-content label {
+    position: absolute;
+    bottom: -110px;
+    left: 50%;
+    transform: translate(-50%);
+    margin: 20px auto;
+    background-color: #ddd;
+    padding: 15px;
+    width: 14vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    box-shadow: 1px 1px 8px #585252;
+}
+
+@media (max-width:768px) {
+    .portfolio .portfolio-content label {
+        width: 28vw;
+    }
+}
+
+.portfolio .hidden {
+    display: none;
+}
+
+.portfolio .portfolio-content #show-more-input:checked~.hidden {
+    display: block;
+}
+
+/* here i will add a condition if the input is checked i create
+a befor for the label contains the word less to press it when
+i want less elements */
+.portfolio .project {
+    background-color: #eee;
+    box-shadow: 1px 1px 8px #585252;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.portfolio .project:hover {
+    transform: translateZ(3px);
+}
+
+@media (max-width: 768px) {
+    .portfolio .project {
+        text-align: center;
+    }
+}
+
+.portfolio .project img {
+    max-width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.portfolio .project-text {
+    padding: 25px;
+}
+
+.portfolio .project-text h3 {
+    margin: 0;
+}
+
+.portfolio .project-text p {
+    color: var(--third-color);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* end portfolio */
+/* start about */
+.about {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    /* background-color: var(--section-background); */
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding-top: calc(var(--main-padding) + 40px);
+    }
+}
+
+.about .about-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 100px;
+}
+
+@media (max-width:1200px) {
+    .about .about-content {
+        grid-template-columns: auto;
+    }
+}
+
+
+.about .about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+    margin: auto;
+}
+
+.about .about-content .image::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: calc(100% + 70px);
+    top: -35px;
+    left: -20px;
+    background-color: #ddd;
+    z-index: -1;
+}
+
+.about .about-content .image::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 80%;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    top: -35px;
+    right: -156px;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+
+    .about .about-content .image::before,
+    .about .about-content .image::after {
+        display: none;
+    }
+}
+
+.about img {
+    width: 100%;
+    height: 100%;
+}
+
+.about hr {
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--secondary-color);
+    width: 50%;
+    position: relative;
+    left: -24%;
+}
+
+.about .about-text {
+    margin: 20px;
+    line-height: 1.6;
+    text-indent: 20px;
+}
+
+.about .about-text .bold-p {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 45px;
+}
+
+.about .about-text .notbold-p {
+    color: var(--third-color);
+    margin-top: 30px;
+}
+
+/* end about */
+/* start contact */
+.contact {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-color: var(--section-background);
+}
+
+.contact .contact-content {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.contact .contact-content p {
+    color: var(--secondary-color);
+    font-size: 3vw;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact .contact-content .mail {
+    color: var(--main-color);
+    font-size: 3vw;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact .contact-content div {
+    color: var(--third-color);
+    font-size: 1.7vw;
+    margin-top: 20px;
+}
+
+@media (max-width:768px) {
+
+    .contact .contact-content p,
+    .contact .contact-content .mail {
+        font-size: 4vw;
+    }
+
+    .contact .contact-content div {
+        font-size: 2.5vw;
+    }
+}
+
+.contact .contact-content i {
+    color: var(--secondary-color);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* end contact */
+/* start footer */
+footer {
+    background-color: var(--secondary-color);
+
+}
+
+footer p {
+    color: white;
+    padding: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: serif;
+    word-spacing: 3px;
+    margin-bottom: 0;
+}
+
+footer p span {
+    color: var(--main-color);
+}
+
+/* end footer */
